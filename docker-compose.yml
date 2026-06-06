@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  krysalisos-dashboard:
+    build: .
+    container_name: krysalisos-dashboard
+    ports:
+      # Map the internal Next.js 3000 to the external 3737 so we don't conflict with Langfuse
+      - "3737:3000"
+    environment:
+      - AGENTIC_OS_CONFIG=/app/config/krysalisos.json
+      - AGENTIC_OS_PIN=5678
+    volumes:
+      - ./vaults/krysalisos:/app/vault
+      - ./configs:/app/config
+      - /var/lib/docker/volumes/agentos_brain/_data:/brain
+    networks:
+      ai-ecosystem_default:
+        aliases:
+          - agentos-dashboard
+    restart: unless-stopped
+
+networks:
+  ai-ecosystem_default:
+    external: true

@@ -1,0 +1,10 @@
+{
+  "name": "Krysalis OS",
+  "short_name": "Krysalis",
+  "description": "Mission Control for Claude, OpenClaw, Hermes and your AI agents.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a111a",
+  "theme_color": "#0a111a",
+  "icons": []
+}
